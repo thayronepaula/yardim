@@ -51,3 +51,18 @@ Para executar este projeto, você precisa ter instalado:
     ```
 
 5. Abra o navegador e acesse [http://localhost:4200](http://localhost:4200) para ver a aplicação Angular em execução, que se comunicará com o servidor Node.js rodando em [http://localhost:3331](http://localhost:3331).
+
+
+
+# User Stories
+
+- [x] **O usuário pode colar um JSON em uma caixa de texto**
+- [x] **O usuário pode clicar no botão 'Converter' para validar o JSON e convertê-lo em CSV**
+- [x] **O usuário pode ver o CSV convertido em outra caixa de texto**
+- [x] **O usuário pode ver uma mensagem de aviso se a caixa de texto JSON estiver vazia ou se não contiver um JSON válido**
+- [x] **O usuário pode clicar no botão 'Limpar' para limpar o conteúdo das caixas de texto JSON e CSV**
+
+### Bônus
+- [x] **Exibir o resultado em uma tabela**
+
+
