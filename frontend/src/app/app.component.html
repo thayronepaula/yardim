@@ -1,0 +1,78 @@
+<main class="container px-4 py-5">
+  <div class="row">
+    <div class="description col-md-12">
+      <h1 class="text-primary fw-bold">JSON2CSV - Yardim</h1>
+      <p>Converta rapidamente seu JSON em CSV.</p>
+    </div>
+  </div>
+
+  <form class="row" [formGroup]="form" (submit)="convert()">
+    <div class="col-md-5 mb-5">
+      <div class="mb-3">
+        <label for="csv" class="form-label">Cole seu JSON</label>
+        <textarea
+          id="csv"
+          class="form-control input save"
+          rows="18"
+          spellcheck="false"
+          formControlName="json"
+          placeholder="Digite um JSON válido ..."
+        >
+        </textarea>
+      </div>
+      <button
+        [disabled]="form.invalid"
+        id="convert"
+        type="submit"
+        class="btn btn-success mb-2 me-2"
+      >
+        <i class="bi bi-chevron-right"></i> Converter
+      </button>
+      <button
+        id="clear"
+        type="button"
+        class="btn btn-danger mb-2 me-2"
+        (click)="clear()"
+      >
+        <i class="bi bi-backspace"></i> Limpar
+      </button>
+    </div>
+
+    <div class="col-md-7 more-bottom-margin">
+      <div class="mb-3">
+        <label class="form-label">CSV</label>
+        <span class="result-note"></span>
+        <textarea
+          id="result"
+          class="form-control result save error"
+          rows="18"
+          spellcheck="false"
+          readonly
+          formControlName="csv"
+        ></textarea>
+      </div>
+      <button
+        id="download"
+        class="btn btn-primary mb-2 me-2"
+        href=""
+        download="csvjson.json"
+        target="_self"
+        [disabled]="!this.form.get('csv')?.value?.length"
+        (click)="download()"
+      >
+        <i class="bi bi-cloud-download"></i> Download
+      </button>
+    </div>
+  </form>
+
+  <app-table [csvHistory]="csvHistory"></app-table>
+</main>
+
+<footer class="bg-body-tertiary text-center">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05)">
+    © {{ now | date : "yyyy" }} Created by
+    <a class="text-body" href="https://github.com/thayronepaula" target="_blank"
+      >Thayrone Paula</a
+    >
+  </div>
+</footer>

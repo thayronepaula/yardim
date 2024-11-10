@@ -1,0 +1,40 @@
+<div class="container my-4">
+  <h2 class="mb-4">Histórico de arquivos CSV</h2>
+
+  @if (csvHistory.length > 0) {
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome do arquivo</th>
+          <th scope="col">Criado em</th>
+          <th scope="col">Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (history of csvHistory; track history.fileName) {
+        <tr>
+          <th scope="row">{{ history.id }}</th>
+          <td>{{ history.fileName }}</td>
+          <td>{{ history.createdAt | date : "dd/MM/yyyy HH:mm:ss" }}</td>
+          <td>
+            <button
+              class="btn btn-primary btn-sm"
+              download
+              (click)="download(history.csv)"
+            >
+              Download
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  } @else {
+  <div class="alert alert-info text-center w-100" role="alert">
+    Sem histórico
+  </div>
+  }
+</div>
